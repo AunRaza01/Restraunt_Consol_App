@@ -15,7 +15,8 @@ class FastFoodMenu extends Menu {
     if (items == 1) {
       displayFastFoodMenu();
       List<String> orderedItems = takeOrder();
-      int totalAmount = calculateTotalAmount(orderedItems);
+
+      int totalAmount = _calculateTotalAmount(orderedItems);
       displayTotalAmount(totalAmount);
     } else if (items == 2) {
       RiceItems riceItems = RiceItems();
@@ -47,13 +48,13 @@ class FastFoodMenu extends Menu {
     List<String> fastFoodItem = [];
     String? exit;
     int i = 1;
-    print("Press * if you're done with your order");
+    print("Type Done if you're done with your order");
 
     while (true) {
       print("Item number $i:");
       exit = stdin.readLineSync()?.toLowerCase();
 
-      if (exit == "*") {
+      if (exit == "done") {
         break; // Exit the loop if the user types '*'
       } else if (exit != null && exit.isNotEmpty) {
         fastFoodItem.add(exit);
@@ -68,7 +69,7 @@ class FastFoodMenu extends Menu {
   }
 
   // Function to calculate the total amount based on the ordered items
-  int calculateTotalAmount(List<String> orderedItems) {
+  int _calculateTotalAmount(List<String> orderedItems) {
     int totalAmount = 0;
 
     if (orderedItems.contains("zinger burger")) {
@@ -88,8 +89,7 @@ class FastFoodMenu extends Menu {
   }
 
   // Function to display the total amount
-  void displayTotalAmount(int totalAmount) {
+  void displayTotalAmount(totalAmount) {
     print("Your total amount is: Rs. $totalAmount");
   }
 }
-
