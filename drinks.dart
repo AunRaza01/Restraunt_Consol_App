@@ -39,13 +39,13 @@ class SoftDrinks extends Menu {
     List<String> riceFoodItem = [];
     String? exit;
     int i = 1;
-    print("Press * if you're done with your order");
+    print("type done if you're done with your order");
 
     while (true) {
       print("Item number $i:");
       exit = stdin.readLineSync()?.toLowerCase(); // Convert to lowercase
 
-      if (exit == "*") {
+      if (exit == "*done") {
         break; // Exit the loop if the user types '*'
       } else if (exit != null && exit.isNotEmpty) {
         riceFoodItem.add(exit);
@@ -81,7 +81,7 @@ class SoftDrinks extends Menu {
   }
 
   // Function to display the total amount
-  void displayTotalAmount(int totalAmount) {
+  void displayTotalAmount(totalAmount) {
     print("Your total amount is: Rs. $totalAmount");
   }
 }
